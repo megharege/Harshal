@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Harshal Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      color: #111;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .overlay {
+      min-height: 100vh;
+      padding: 60px 20px;
+      background-color: rgba(245, 235, 220, 0.85); /* Beige */
+      transition: background-image 0.5s ease-in-out;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8em;
+      color: #000;
+      text-align: center;
+      margin-bottom: 50px;
+      text-shadow: 2px 2px 6px rgba(255, 255, 0, 0.3);
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .btn {
+      background-color: #f0e68c; /* light yellow */
+      color: #000;
+      padding: 18px 35px;
+      font-size: 1.2em;
+      border-radius: 30px;
+      width: 280px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+      transition: 0.3s ease;
+      cursor: pointer;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .btn:hover {
+      background-color: #ffe135;
+      transform: scale(1.05);
+    }
+
+    .section {
+      display: none;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.65); /* semi-black */
+      padding: 30px;
+      border-radius: 15px;
+      color: #fff;
+      font-size: 1.2em;
+      line-height: 1.6;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      backdrop-filter: blur(4px);
+    }
+
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #ffe135;
+    }
+
+    .section ol {
+      padding-left: 20px;
+    }
+
+    .highlight {
+      color: #ffe135;
+      font-weight: bold;
+    }
+
+    .back-btn {
+      display: block;
+      margin-top: 25px;
+      color: #ffe135;
+      font-weight: bold;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .btn {
+        width: 90%;
+        padding: 15px;
+        font-size: 1em;
+      }
+
+      .section {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay" id="overlay">
+    <h1>Harshal Hub</h1>
+
+    <div class="buttons" id="main-buttons">
+      <div class="btn" onclick="showSection('sorry')">Apology Arc</div>
+      <div class="btn" onclick="showSection('reasons')">13 Reasons Why</div>
+      <div class="btn" onclick="showSection('smiles')">Free Smiles</div>
+      <a class="btn" href="https://youtu.be/eJGcBSfBQMw?si=CtqZ5aUxQ3fCTZ39" target="_blank">Sunshine Material 🎶</a>
+    </div>
+
+    <div class="section" id="sorry">
+      <h2>Sorry 💔</h2>
+      <p>
+        Today would be an appropriate day to undo all the <span class="highlight">guilt</span> I've been carrying for the times I fought with you. The truth is every word has come from a place of <span class="highlight">love</span> I didn’t know how to show. But your sister is a <span class="highlight">boomerang</span> — she might fight, but will always find her way back to you.
+      </p>
+      <span class="back-btn" onclick="goBack()">← Home</span>
+    </div>
+
+    <div class="section" id="reasons">
+      <h2>13 Reasons Why 💌</h2>
+      <ol>
+        <li>You always <span class="highlight">protect</span> me like a real brother.</li>
+        <li>You never give up on me.</li>
+        <li>You’re my <span class="highlight">role model</span> on dark days.</li>
+        <li>You check in even when tired.</li>
+        <li>You make me feel <span class="highlight">safe</span>.</li>
+        <li>You remember little things.</li>
+        <li>You handle my inner child.</li>
+        <li>You’re always just a call away.</li>
+        <li>You are <span class="highlight">sunshine</span> in human form.</li>
+        <li>You make life tolerable.</li>
+        <li>You hold space for my tears.</li>
+        <li>You never let me feel <span class="highlight">alone</span>.</li>
+        <li>You make me laugh even when I’m teary. 💖</li>
+      </ol>
+      <span class="back-btn" onclick="goBack()">← Home</span>
+    </div>
+
+    <div class="section" id="smiles">
+      <h2>Free Smiles 😊</h2>
+      <p>
+        Just for today, forget everything and <span class="highlight">smile</span>, Harshal — it’s Brother’s Day. I’m proud of you. You deserve to be <span class="highlight">happy</span> because you spread so many smiles around, especially to me. You keep me <span class="highlight">sane</span>.
+      </p>
+      <span class="back-btn" onclick="goBack()">← Home</span>
+    </div>
+  </div>
+
+  <script>
+    const backgrounds = {
+      sorry: 'Harshal/pic2.jpg',
+      reasons: 'Harshal/pic1.avif',
+      smiles: 'Harshal/pic3.jpg',
+      home: 'Harshal/pic4.jpg',
+    };
+
+    function setBackground(imgPath) {
+      const overlay = document.getElementById("overlay");
+      overlay.style.backgroundImage = `url('${imgPath}')`;
+    }
+
+    function showSection(sectionId) {
+      document.getElementById("main-buttons").style.display = "none";
+      document.querySelectorAll(".section").forEach(sec => sec.style.display = "none");
+      document.getElementById(sectionId).style.display = "block";
+      setBackground(backgrounds[sectionId]);
+    }
+
+    function goBack() {
+      document.querySelectorAll(".section").forEach(sec => sec.style.display = "none");
+      document.getElementById("main-buttons").style.display = "flex";
+      setBackground(backgrounds.home);
+    }
+
+    // Set home background on load
+    window.onload = () => setBackground(backgrounds.home);
+  </script>
+</body>
+</html>
